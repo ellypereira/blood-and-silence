@@ -1,0 +1,288 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;;
+    overflow: hidden;
+}
+
+body {
+    background: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* BACKGROUND */
+
+#background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(/assets/bg-floresta.png) center/cover no-repeat;
+    z-index: 1;
+}
+
+/* PERSONAGENS */
+
+.character {
+    position: absolute;
+    bottom: -60px;
+    width: auto;
+    height: 85vh;
+
+    opacity: 0;
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+#lucien {
+    left: 70%;
+    transform: translateX(-40%);
+}
+
+
+#elias {
+    left: 30%;
+    transform: translateX(-60%);
+}
+
+
+/* BALÃO DE FALA */
+
+#speech-bubble {
+    position: absolute;
+    top: 15%;
+    max-width: 300px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.35);
+    color: #222;
+    padding: 14px 19px;
+    border-radius: 18px;
+    box-shadow: 0 6px 15px rgb(0, 0, 0, 0.35);
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.bubble-right {
+  left: 58%;
+}
+
+.bubble-left {
+  left: 22%;
+}
+
+.bubble-right::after {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 20px;
+  border-width: 8px 14px 8px 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+}
+
+.bubble-left::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: 30px;
+  border-width: 8px 0 8px 14px;
+  border-style: solid;
+  border-color: transparent transparent transparent white;
+}
+
+/* CAIXA DO NARRADOR */
+#textbox {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  background: rgba(0,0,0,0.65);
+  color: white;
+  padding: 18px;
+  border-radius: 14px;
+  z-index: 15;
+  font-size: 16px;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* EFEITOS DE TELA */
+
+.flash {
+    animation: flashEffect 0.6s ease;
+}
+
+@keyframes flashEffect {
+  0% { background: black; }
+  50% { background: white; }
+  100% { background: black; }
+}
+
+.fade-black {
+  animation: fadeToBlack 1.2s forwards;
+}
+
+@keyframes fadeToBlack {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/*EP 2 ESCOLHAS*/
+#choices {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 30;
+}
+
+.choice-btn {
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.choice-btn:hover {
+  background: rgba(120,0,0,0.8);
+}
+
+/* BOTÃO */
+#next-chapter-btn {
+  position: absolute;
+  bottom: 12%;
+  right: 5%;
+  padding: 12px 20px;
+
+  background: linear-gradient(135deg, #7b1d1d, #b02a2a);
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  z-index: 20;
+}
+
+#next-chapter-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+}
+
+#next-chapter-btn.hidden {
+  display: none;
+}
+
+
+
+@media (max-width: 768px) {
+  .character {
+    height: 65vh;
+    bottom: -30px;
+  }
+
+  #lucien {
+    left: 65%;
+  }
+
+  #elias {
+    left: 35%;
+  }
+}
+
+@media (max-width: 480px) {
+  .character {
+    height: 58vh;
+    bottom: -20px;
+  }
+
+  #lucien {
+    left: 60%;
+  }
+
+  #elias {
+    left: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  #speech-bubble {
+    max-width: 240px;
+    font-size: 13px;
+    top: 12%;
+  }
+}
+
+@media (max-width: 480px) {
+  #speech-bubble {
+    max-width: 210px;
+    font-size: 12px;
+    top: 10%;
+  }
+}
+
+#textbox {
+  width: 85%;
+  font-size: 16px;
+}
+
+button {
+  min-height: 44px;
+  padding: 12px 18px;
+  font-size: 14px;
+}
+
+
+@media (max-width: 768px) {
+  #textbox {
+    width: 92%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #textbox {
+    width: 95%;
+    font-size: 13px;
+    padding: 14px;
+  }
+}
+
