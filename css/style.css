@@ -34,7 +34,7 @@ body {
 
 .character {
     position: absolute;
-    bottom: -60px;
+    bottom: -110px; 
     width: auto;
     height: 85vh;
 
@@ -62,7 +62,7 @@ body {
 
 #speech-bubble {
     position: absolute;
-    top: 15%;
+    top: 25%;
     max-width: 300px;
     font-size: 14px;
     background: rgba(255, 255, 255, 0.35);
@@ -79,7 +79,7 @@ body {
 }
 
 .bubble-right {
-  left: 58%;
+  left: 44%;
 }
 
 .bubble-left {
@@ -230,12 +230,12 @@ body {
 
 @media (max-width: 480px) {
   .character {
-    height: 58vh;
-    bottom: -20px;
+    height: 38vh;
+    bottom: -30px;
   }
 
   #lucien {
-    left: 60%;
+    left: 70%;
   }
 
   #elias {
@@ -255,7 +255,7 @@ body {
   #speech-bubble {
     max-width: 210px;
     font-size: 12px;
-    top: 10%;
+    top: 56%;
   }
 }
 
